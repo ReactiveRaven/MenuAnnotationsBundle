@@ -1,0 +1,16 @@
+{
+    "name": "ReactiveRaven/MenuAnnotationsBundle",
+    "type":        "symfony-bundle",
+    "description": "Support for annotating methods for including in menus.",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.3.0",
+        "symfony/symfony": "2.1.*",
+        "mopa/bootstrap-bundle": "2.0.*",
+        "jms/security-extra-bundle": "1.2.*"
+    },
+    "target-dir": "RRaven/Bundle/MenuAnnotationsBundle",
+    "autoload": {
+        "psr-0": { "RRaven\\Bundle\\MenuAnnotationsBundle": "" }
+    }
+}

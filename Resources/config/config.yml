@@ -1,0 +1,36 @@
+services:
+    rraven.helper.menumenu:
+        class: RRaven\Bundle\MenuAnnotationsBundle\Helper\MenuMenuHelper
+        arguments: ["@annotation_reader", "@logger", "@router", "@security.access.method_interceptor"]
+    rraven.navbar:
+        class: '%mopa_bootstrap.navbar.generic%'
+        scope: request
+        arguments:
+            - { leftmenu: @rraven.navbar_main_menu=, rightmenu: @rraven.navbar_right_menu= }
+            - {}
+            - { fixedTop: true, isFluid: false }
+        tags:
+            - { name: mopa_bootstrap.navbar, alias: frontendNavbar }
+
+    rraven.navbar_menu_builder:
+        class: RRaven\Bundle\MenuAnnotationsBundle\Menu\NavbarMenuBuilder
+        scope: request
+        arguments: [ '@knp_menu.factory', '@security.context' ]
+
+    rraven.navbar_main_menu:
+        class: Knp\Menu\MenuItem
+        factory_service: rraven.navbar_menu_builder
+        factory_method: createMainMenu
+        arguments: [ '@request' ]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: main }
+
+    rraven.navbar_right_menu:
+        class: Knp\Menu\MenuItem
+        factory_service: rraven.navbar_menu_builder
+        factory_method: createRightSideDropdownMenu
+        arguments: [ '@request' ]
+        scope: request
+        tags:
+            - { name: knp_menu.menu, alias: main }
