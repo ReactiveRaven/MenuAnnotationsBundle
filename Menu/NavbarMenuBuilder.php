@@ -91,7 +91,7 @@ class NavbarMenuBuilder extends AbstractNavbarMenuBuilder
         if ($this->isLoggedIn) {
             $menu->addChild('Logout', array('route' => 'fos_user_security_logout'));
         } else {
-            $menu->addChild('Login', array('route' => 'hwi_oauth_connect'));
+            $menu->addChild('Login', array('route' => 'fos_user_security_login'));
         }
 
         //$this->addDivider($menu, true);
