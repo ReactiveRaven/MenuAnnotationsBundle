@@ -1,5 +1,5 @@
 {
-    "name": "ReactiveRaven/MenuAnnotationsBundle",
+    "name": "reactive-raven/menu-annotations-bundle",
     "type":        "symfony-bundle",
     "description": "Support for annotating methods for including in menus.",
     "license": "MIT",
